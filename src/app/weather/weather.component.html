@@ -1,0 +1,84 @@
+<div class="container-fluid bg-light p-5">
+  <div class="row">
+    <div class="col-6">
+      <form class="d-flex">
+        <input class="form-control me-2 border-0" type="search" placeholder="Search" #inputData aria-label="Search">
+        <button class="btn btn-danger btn-lg fw-bold" (click)="getCity(inputData.value)" type="submit">Search</button>
+      </form>
+    </div>
+    <div class="col-6">
+      <div class="text-dark  display-6 fw-italic text-center">Weather App <i class="fas fa-cloud"></i></div>
+
+    </div>
+
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="  text-center  p-5 m-5 bg-dark text-light  rounded-2 ">
+    <h3><i class="fas fa-globe-europe pe-2"></i>Current Weather And Forcast in Your City<i class="fas fa-city ps-1"></i>
+    </h3>
+    <h2>
+      Weather in <i class="fas fa-cloud-moon"></i>
+
+
+      {{weather.name}},{{weather.sys.country}}<i class="far fa-flag ps-2"></i>
+
+    </h2>
+
+  </div>
+  <div class="col-sm-3 bg-light p-5 text-center rounded-3">
+    <span><i class="fas fa-temperature-high ms-2"></i> {{weather.main.temp | number:'1.0-0'}}&#176;F </span>
+    <p class="text-uppercase fw-italic fw-bold">{{weather.weather[0].description}} <i class="fas fa-cloud-meatball me-2"></i></p>
+  </div>
+
+
+  <table class="table caption-top  table-light table-striped ">
+    <caption class="fs-5">Deatail About Weather </caption>
+
+    <tbody class="border-top-0">
+      <tr>
+        <th scope="row ">1</th>
+        <td>Humidity</td>
+        <td>{{weather.main.humidity}}%</td>
+
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>pressure</td>
+        <td>{{weather.main.pressure}}</td>
+
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>sunrise</td>
+        <td>{{weather.sys.sunrise*1000 | date:'H:mm'}}</td>
+
+      </tr>
+      <tr>
+        <th scope="row">4</th>
+        <td>sunset</td>
+        <td>{{weather.sys.sunset*1000 | date:'H:mm'}}</td>
+
+      </tr>
+      <tr>
+        <th scope="row">5</th>
+        <td>Geo Corde</td>
+        <td>[{{weather.coord.lat}}-{{weather.coord.lon}}]</td>
+
+      </tr>
+      <tr>
+              <th scope="row">6</th>
+        <td>wind</td>
+        <td>[{{weather.wind.speed}}-{{weather.wind.deg}}]</td>
+
+      </tr>
+
+    </tbody>
+  </table>
+
+</div>
+<!--nav class="navbar navbar-light bg-light p-5">
+      
+  </nav-->
